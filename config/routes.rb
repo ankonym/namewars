@@ -5,6 +5,9 @@ Names::Application.routes.draw do
   get "vote" => "kidsnames#vote"
   post "vote" => "kidsnames#voteresult"
 
+  get "voteboys" => "kidsnames#voteboys"
+  post "voteboys" => "kidsnames#voteresult"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

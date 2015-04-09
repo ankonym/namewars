@@ -3,7 +3,7 @@ require 'csv'
 desc "Import names from csv file"
 
 task import: :environment do 
-	file = "db/girlsnamesnew.csv"
+	file = "db/allnamesnew.csv"
 
 	CSV.foreach(file, headers:true) do |row|
 		Kidsname.create ({

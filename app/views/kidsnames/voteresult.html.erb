@@ -1,18 +1,17 @@
 
 <table class="table">
 <tr>
-<td colspan="2"><b class="decoheading">Gewonnen hat:</b>
+<td colspan="2"><center><b class="decoheading">Gewonnen hat:</b></center>
 </td></tr>
 <tr>
 	<tr>
 <td colspan="2"><center><span class="btn"><%= @winner.name %></span></center>
 </td></tr>
 <tr>
-<td align="center">Count: <%= @winner.count %></td>
-<td align="center"><p>Score: <%= @winner.score %></p>
-</td>
+<td align="center"><span class="names">Count: <%= @winner.count %></span></td>
+<td align="center"><span class="names">Score: <%= @winner.score %></span></td>
 </tr>
-<tr><td colspan="2"><center><a href="/vote" class="navbutton">Nächster Name</a></center></td></tr>
+<tr><td ><center><a href="/vote" class="navbutton">Neuer Mädchenname</a></center></td><td ><center><a href="/voteboys" class="navbutton">Neuer Jungenname</a></center></td></tr>
 </table>
 
 

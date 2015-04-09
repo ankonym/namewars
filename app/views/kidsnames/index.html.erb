@@ -1,45 +1,82 @@
 
-<ul>
-  <li><a href="#all">Alle Namen</a></li>
-  <li><a href="#flop">Rausgeflogen</a></li>
-  <li><a href="#out">Außer Konkurrenz</a></li>
+<ul class="nav navbar-nav">
+  <li><button class="navbutton"><a href="#allgirls">Mädchennamen</a></button></li>
+    <li><button class="navbutton"><a href="#allboys">Jungennamen</a></button></li>
+  <li><button class="navbutton"><a href="#flop">Rausgeflogen</a></button></li>
+  <li><button class="navbutton"><a href="#out">Außer Konkurrenz</a></button></li>
+  <li><button class="navbutton"><%= link_to 'Neuen Namen hinzufügen', new_kidsname_path %></button></li>
 </ul>
 
 
 
-<a name="all"></a>
+
+
+<div class="clear"></div>
+
+<div class="blocktableleft">
+<a name="allgirls"></a>
 <table class="table"> <a name="all">
  
-    <thead><tr><b class="decoheading">Noch im Rennen</b></tr></thead>
+    <thead><tr><b class="decoheading">Mädchen, noch im Rennen</b></tr></thead>
     <tbody>
     <th>Name</th>
     <th>Score</th>
     <th>Count</th>
     <th></th>
-    <th></th>
   </tr>
 
-<% @kidsnames = Kidsname.where ['score >= ?', -1] %>
+<% @kidsnames = Kidsname.where ['gender = "f" AND score >= ?', -1] %>
 <% @kidsnames = @kidsnames.all.sort_by(&:score).reverse! %>
-
 
 <% @kidsnames.each do |kidsname| %>
   <tr>
     <td><span class="names"><%= kidsname.name %></span></td>
     <td><b><span class="btn"><%= kidsname.score %></span></b></td>
     <td><span class="btn"><%= kidsname.count %></span></td>
-    <td><button><%= link_to 'Show', kidsname %></button></td>
-    <td><button><%= link_to 'Edit', edit_kidsname_path(kidsname) %></button></td>
+    <td><button class="navbutton"><%= link_to 'Edit', edit_kidsname_path(kidsname) %></button></td>
   
   </tr>
 <% end %>
 </tbody>
 </table>
-
-<button><%= link_to 'Neuen Namen hinzufügen', new_kidsname_path %></button>
-
+</div>
 
 
+
+
+<div class="blocktableright">
+<a name="allboys"></a>
+
+<table class="table"> <a name="all">
+ 
+    <thead><tr><b class="decoheading">Jungen, noch im Rennen</b></tr></thead>
+    <tbody>
+    <th>Name</th>
+    <th>Score</th>
+    <th>Count</th>
+    <th></th>
+  </tr>
+
+<% @boysnames = Kidsname.where [' gender = "m" AND score >= ?', -1] %>
+<% @boysnames = @boysnames.all.sort_by(&:score).reverse! %>
+
+
+<% @boysnames.each do |kidsname| %>
+  <tr>
+    <td><span class="names"><%= kidsname.name %></span></td>
+    <td><b><span class="btn"><%= kidsname.score %></span></b></td>
+    <td><span class="btn"><%= kidsname.count %></span></td>
+    <td><button class="navbutton"><%= link_to 'Edit', edit_kidsname_path(kidsname) %></button></td>
+  
+  </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+
+<div class="clear"></div>
+
+<div class="blocktableleft">
 <a name="flop"></a>
 <table class="table">
   <thead><tr>
@@ -47,7 +84,7 @@
         <tbody>
 
     <th>Name</th>
-    <th>Score</th>
+    <th>Geschlecht</th>
     <th>Count</th>
     <th></th>
     <th></th>
@@ -55,22 +92,25 @@
 
 <% @flopnames = Kidsname.where ['score <= ?', -1] %>
 <% @flopnames = @flopnames.where ['score > ?', -450] %>
-<% @flopnames = @flopnames.all.sort_by(&:count).reverse %>
+<% @flopnames = @flopnames.all.sort_by(&:name) %>
 
 
 <% @flopnames.each do |t| %>
 
      <tr>
     <td><%= t.name %></td>
-    <td><%= t.score %></td>
+    <td><%= t.gender %></td>
     <td><%= t.count %></td>
   
   </tr></tbody>
 <% end %>
 </table>
-
+</div>
 
 <a name="out"></a>
+
+
+<div class="blocktableright">
 <table class="table">
   
         <thead><tr><span class="decoheading">Außer Konkurrenz</span></tr></thead>
@@ -95,4 +135,5 @@
   </tr>
 <% end %>
 </table>
-
+</div>
+<div class="clear"></div>

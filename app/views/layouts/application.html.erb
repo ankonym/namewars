@@ -24,8 +24,12 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li class="active"><a href="/kidsnames">Namen</a></li>
-        <li class="active"><a href="/vote">Abstimmen!</a></li>
-      </ul>
+        <li class="active"><a href="/vote">Abstimmen <br>Mädchen</a></li>
+        <li class="active"><a href="/voteboys">Abstimmen <br>Jungen</a></li>
+        </ul>
+        <span class="stats"><br>Gesamtzahl Namen: <%= @totalnames = Kidsname.count(:name) %>   <br>Abgegebene Stimmen: <%= @totalvotes = Kidsname.sum(:count) / 2 %></span>
+
+      
     </div>
   </div>
 </nav>
@@ -35,10 +39,8 @@
   <%= yield %>
 </div>
 
-<footer>
-  <div class="container">
+  <div class="footer">
 Anke Schiffels 2015  </div>
-</footer>
 <script src="//railsgirls.com/assets/bootstrap.js"></script>
 
 </body>

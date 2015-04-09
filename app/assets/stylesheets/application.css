@@ -12,14 +12,19 @@
  *= require_tree .
 */
 body { padding-top: 100px; 
-padding-left: 30px;}
-footer { margin-top: 100px; }
+padding-left: 100px;}
+padding-right: 100px;}
+
+
+
 table, td, th { vertical-align: middle; border: none; }
+
 th { border-bottom: 1px solid #DDD; }
 
-button {border:none;
+button {
   margin: 5px;
   border: 1px solid teal;
+  padding: 3px;
 }
 
 button:active {
@@ -29,6 +34,22 @@ border: none;
 
 button:focus {outline:0;}
 
+.blocktableleft {
+  display:inline-block;
+  float: left;
+    padding-top: 100px;
+
+}
+.blocktableright{
+  display:inline-block;
+  float: right;
+  padding-right:150px;
+  padding-top: 100px;
+}
+
+.clear {
+  clear:both;
+}
 
 .decoheading {
 -webkit-border-radius: 28;
@@ -38,7 +59,7 @@ button:focus {outline:0;}
   color: teal;
   font-size: 28px;
   background: #f0e6bd;
-  padding: 10px 20px 5px 20px;
+  padding: 2px 20px 5px 20px;
   text-decoration: none;
 }
 
@@ -102,6 +123,17 @@ padding: 5px;
 .btn3:hover {
   text-decoration: none;
 }
+
+.footer { margin-top: 100px; 
+  margin-left: -100px;
+    display:none;
+    background: #f0e6bd;
+}
+
+
+.stats { 
+float: right;
+display: inline-block;}
 
 thead {
 	margin-top: 50px;
@@ -690,7 +722,7 @@ cite {
 ul,
 ol {
   margin-top: 0;
-  margin-bottom: 100px;
+  margin-bottom: 10px;
 }
 
 ul ul,
@@ -3557,6 +3589,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   line-height: 20px;
   font-family:'Sacramento', cursive;
   font-size: 48px;
+  font-weight: bolder;
 }
 
 .navbar-brand:hover,

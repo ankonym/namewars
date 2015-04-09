@@ -87,7 +87,7 @@ class KidsnamesController < ApplicationController
 
   def vote
   
-    @names = Kidsname.where ['score >= ?', -99 ]
+    @names = Kidsname.where ['gender = "f" AND score >= ?', -99 ]
     @names = @names.shuffle 
 
     @names[0].count +=1
@@ -95,6 +95,27 @@ class KidsnamesController < ApplicationController
 
     @names[1].count +=1 
         @names[1].save 
+
+    
+    # @randomnames = @names[0,1]
+
+    # @randomnames.each do |x|
+     # x.count +=1
+     # x.save
+
+   # end
+  end
+
+    def voteboys
+  
+    @boysnames = Kidsname.where ['gender = "m" AND score >= ?', -99 ]
+    @boysnames = @boysnames.shuffle 
+
+    @boysnames[0].count +=1
+        @boysnames[0].save
+
+    @boysnames[1].count +=1 
+        @boysnames[1].save 
 
     
     # @randomnames = @names[0,1]
@@ -114,11 +135,15 @@ class KidsnamesController < ApplicationController
     @names = Kidsname.where ['score >= ?', -99 ]
 
     @names.each do |x|
-      if x.count >= 5 && x.score <= 1
+      if x.count >= 5 && x.score <= 2
        x.score = -100
        x.save
 
-     elsif x.count >= 10 && x.score <=5
+     elsif x.count == 4 && x.score == 0
+       x.score = -100
+       x.save
+
+     elsif x.count >= 10 && x.score <=6
       x.score = -100
       x.save 
          
