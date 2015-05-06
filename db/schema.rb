@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(:version => 20150128232807) do
     t.string   "name"
     t.string   "gender"
     t.integer  "rank"
-    t.integer  "score", :default => 0
+    t.integer  "score"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "count", :default => 0
+    t.integer  "count"
   end
 
 end
