@@ -4,9 +4,9 @@
 <tr ><td colspan="2"><center><b class="decoheading">Was ist hübscher?</b></center></td></tr>
 <tr>
 <td><%= form_tag("/voteboys", method: "post") do %>
-    <button class="btn" name="winner" value="<%= @boysnames[0].id %>"><%= @boysnames[0].name %></button></td>
+    <button class="namesbtn" name="winner" value="<%= @boysnames[0].id %>"><%= @boysnames[0].name %></button></td>
 <td>
-    <button class="btn" name="winner" value="<%= @boysnames[1].id %>"><%= @boysnames[1].name %></button></td>
+    <button class="namesbtn" name="winner" value="<%= @boysnames[1].id %>"><%= @boysnames[1].name %></button></td>
 </tr>
 
 </table>

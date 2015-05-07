@@ -1,12 +1,12 @@
 
 <ul class="nav navbar-nav">
-  <li><button class="navbutton"><a href="#allgirls">Mädchennamen</a></button></li>
-    <li><button class="navbutton"><a href="#allboys">Jungennamen</a></button></li>
-  <li><button class="navbutton"><a href="#flop">Rausgeflogen</a></button></li>
-  <li><button class="navbutton"><a href="#out">Außer Konkurrenz</a></button></li>
-  <li><button class="navbutton"><%= link_to 'Neuen Namen hinzufügen', new_kidsname_path %></button></li>
+  <li><button class="navbutton"><a href="#allgirls"><span class="glyphicon glyphicon-th-list"></span> Mädchennamen</a></button></li>
+    <li><button class="navbutton"><a href="#allboys"><span class="glyphicon glyphicon-th-list"></span> Jungennamen</a></button></li>
+  <li><button class="navbutton"><a href="#flop"><span class="glyphicon glyphicon-th-list"></span> Rausgeflogen</a></button></li>
+  <li><button class="navbutton"><a href="#out"><span class="glyphicon glyphicon-th-list"></span> Außer Konkurrenz</a></button></li>
+  <li><button class="navbutton"><span class="glyphicon glyphicon-plus"></span>
+<%= link_to 'Neuer Name', new_kidsname_path %></button></li>
 </ul>
-
 
 
 
@@ -14,14 +14,15 @@
 <div class="clear"></div>
 
 <div class="blocktableleft">
+  <div class="tablebgdiv">
 <a name="allgirls"></a>
 <table class="table"> <a name="all">
  
     <thead><tr><b class="decoheading">Mädchen, noch im Rennen</b></tr></thead>
     <tbody>
     <th>Name</th>
-    <th>Score</th>
-    <th>Count</th>
+    <th>Punkte</th>
+    <th>Runden</th>
     <th></th>
   </tr>
 
@@ -29,22 +30,25 @@
 <% @kidsnames = @kidsnames.all.sort_by(&:score).reverse! %>
 
 <% @kidsnames.each do |kidsname| %>
-  <tr>
+  <tr class="tabledatarow">
     <td><span class="names"><%= kidsname.name %></span></td>
     <td><b><span class="btn"><%= kidsname.score %></span></b></td>
     <td><span class="btn"><%= kidsname.count %></span></td>
-    <td><button class="navbutton"><%= link_to 'Edit', edit_kidsname_path(kidsname) %></button></td>
+    <td><button class="navbutton"><span class="glyphicon glyphicon-pencil"></span><%= link_to 'edit', edit_kidsname_path(kidsname) %></button></td>
   
   </tr>
 <% end %>
 </tbody>
 </table>
 </div>
+</div>
 
 
 
 
 <div class="blocktableright">
+    <div class="tablebgdiv">
+
 <a name="allboys"></a>
 
 <table class="table"> <a name="all">
@@ -52,8 +56,8 @@
     <thead><tr><b class="decoheading">Jungen, noch im Rennen</b></tr></thead>
     <tbody>
     <th>Name</th>
-    <th>Score</th>
-    <th>Count</th>
+    <th>Punkte</th>
+    <th>Runden</th>
     <th></th>
   </tr>
 
@@ -62,21 +66,24 @@
 
 
 <% @boysnames.each do |kidsname| %>
-  <tr>
+  <tr class="tabledatarow">
     <td><span class="names"><%= kidsname.name %></span></td>
     <td><b><span class="btn"><%= kidsname.score %></span></b></td>
     <td><span class="btn"><%= kidsname.count %></span></td>
-    <td><button class="navbutton"><%= link_to 'Edit', edit_kidsname_path(kidsname) %></button></td>
+ <td><button class="navbutton"><span class="glyphicon glyphicon-pencil"></span><%= link_to 'edit', edit_kidsname_path(kidsname) %></button></td>
   
   </tr>
 <% end %>
 </tbody>
 </table>
 </div>
+</div>
 
 <div class="clear"></div>
 
 <div class="blocktableleft">
+    <div class="tablebgdiv">
+
 <a name="flop"></a>
 <table class="table">
   <thead><tr>
@@ -85,38 +92,41 @@
 
     <th>Name</th>
     <th>Geschlecht</th>
-    <th>Count</th>
+    <th>Runden</th>
     <th></th>
     <th></th>
   </tr>
 
 <% @flopnames = Kidsname.where ['score <= ?', -1] %>
 <% @flopnames = @flopnames.where ['score > ?', -450] %>
-<% @flopnames = @flopnames.all.sort_by(&:name) %>
+<% @flopnames = @flopnames.all.sort_by(&:count).reverse! %>
 
 
 <% @flopnames.each do |t| %>
 
-     <tr>
-    <td><%= t.name %></td>
-    <td><%= t.gender %></td>
-    <td><%= t.count %></td>
+  <tr class="tabledatarow">
+    <td><span class="names"><%= t.name %></span></td>
+    <td><span class="names"><%= t.gender %></span></td>
+    <td><span class="names"><%= t.count %></span></td>
   
   </tr></tbody>
 <% end %>
 </table>
+</div>
 </div>
 
 <a name="out"></a>
 
 
 <div class="blocktableright">
+    <div class="tablebgdiv">
+
 <table class="table">
   
         <thead><tr><span class="decoheading">Außer Konkurrenz</span></tr></thead>
 <tr>
     <th>Name</th>
-    <th>Gender</th>
+    <th>Geschlecht</th>
     
     <th></th>
     <th></th>
@@ -126,14 +136,15 @@
 
 <% @outnames.each do |t| %>
 
-     <tr>
-    <td><%= t.name %></td>
-    <td><%= t.gender %></td>
+  <tr class="tabledatarow">
+    <td><span class="names"><%= t.name %></span></td>
+    <td><span class="names"><%= t.gender %></span></td>
     
 
   
   </tr>
 <% end %>
 </table>
+</div>
 </div>
 <div class="clear"></div>
