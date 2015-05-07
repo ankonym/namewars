@@ -173,7 +173,7 @@ a:visited.actionbutton {
   padding-left: 5px;
   padding-right: 5px;
   border-radius: 28px;
-  -moz-border-radius: 4px
+  -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   overflow: hidden; /*notice*/
   background-color:#f0e6bd;
