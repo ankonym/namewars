@@ -57,7 +57,7 @@
     <th></th>
   </tr>
 
-<% @boysnames = Kidsname.where [' gender = \'f\' AND score >= ?', -1] %>
+<% @boysnames = Kidsname.where [' gender = \'m\' AND score >= ?', -1] %>
 <% @boysnames = @boysnames.all.sort_by(&:score).reverse! %>
 
 
