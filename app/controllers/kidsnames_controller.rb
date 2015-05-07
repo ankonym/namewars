@@ -90,6 +90,15 @@ class KidsnamesController < ApplicationController
     @names = Kidsname.where ['gender = \'f\' AND score >= ?', -99 ]
     @names = @names.shuffle 
 
+
+    if @names[0] == nil
+      print "Kein Name vorhanden"
+
+    elsif @names[1] == nil
+      print "Nur noch ein Name im Rennen"
+
+    else   
+
     @names[0].count +=1
         @names[0].save
 
@@ -104,6 +113,7 @@ class KidsnamesController < ApplicationController
      # x.save
 
    # end
+    end
   end
 
     def voteboys
