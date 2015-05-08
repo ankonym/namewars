@@ -176,5 +176,23 @@ class KidsnamesController < ApplicationController
 
   end 
 
+  def rmtakennames
+
+  end
+
+  def edit_multiple
+    @editnames = Kidsname.find(params[:kidsname_ids])
+  end
+  
+  def update_multiple
+   @editnames = Kidsname.find(params[:kidsname_ids])
+  @editnames.each do |name|
+    name.update_attributes!(params[:kidsname].reject { |k,v| v.blank? })
+    # Kidsname.where(id: params[:kidsname_ids]).update_all
+  end
+  flash[:notice] = "Updated names!"
+  redirect_to kidsnames_path
+  end
+
 #end
 end

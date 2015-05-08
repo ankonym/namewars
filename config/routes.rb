@@ -1,5 +1,13 @@
 Names::Application.routes.draw do
-  resources :kidsnames
+  
+
+resources :kidsnames do
+  collection do
+    post 'edit_multiple'
+    put 'update_multiple'
+  end
+end
+
   root :to => redirect('/kidsnames')
   
   get "vote" => "kidsnames#vote"
@@ -7,6 +15,8 @@ Names::Application.routes.draw do
 
   get "voteboys" => "kidsnames#voteboys"
   post "voteboys" => "kidsnames#voteresult"
+
+  get "rmtakennames" => "kidsnames#rmtakennames"
 
 
   # The priority is based upon order of creation:

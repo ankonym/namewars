@@ -26,6 +26,8 @@
         <li class="active"><a href="/kidsnames"><span class="glyphicon glyphicon-th-list"></span> Ranglisten</a></li>
         <li class="active"><a href="/vote"><span class="glyphicon glyphicon-thumbs-up"></span> Mädchen</a></li>
         <li class="active"><a href="/voteboys"><span class="glyphicon glyphicon-thumbs-up"></span> Jungen</a></li>
+        <li class="active"><a href="/rmtakennames"><span class="glyphicon glyphicon-pencil"></span> Namen bearbeiten</a></li>
+
         </ul>
         <span class="stats"><br>Gesamtzahl Namen: <%= @totalnames = Kidsname.count(:name) %>   <br>Abgegebene Stimmen: <%= @totalvotes = Kidsname.sum(:count) / 2 %></span>
 
