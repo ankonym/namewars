@@ -1,0 +1,20 @@
+<%= form_for :kidsname, :url => update_multiple_kidsnames_path, :html => { :method => :put } do |form| %>
+
+<ul>
+  <% for kidsname in @editnames %>
+  <li>
+    <%= h kidsname.name %>
+    <%= hidden_field_tag "kidsname_ids[]", kidsname.id%>
+  </li>
+  <% end %>
+</ul>
+
+
+    <%= form.label :score %>
+    <%= form.text_field :score %>
+
+
+
+    <%= form.submit "Submit" %>
+
+<% end %>
