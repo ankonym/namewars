@@ -186,9 +186,11 @@ class KidsnamesController < ApplicationController
   
   def update_multiple
    @editnames = Kidsname.find(params[:kidsname_ids])
-  @editnames.each do |name|
-    name.update_attributes!(params[:kidsname].reject { |k,v| v.blank? })
-    # Kidsname.where(id: params[:kidsname_ids]).update_all
+
+   @editnames.each do |name|
+    name.update_attributes(:score => params[:score])
+    name.save!
+
   end
   flash[:notice] = "Updated names!"
   redirect_to kidsnames_path

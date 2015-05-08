@@ -9,12 +9,16 @@
   <% end %>
 </ul>
 
+<%= radio_button_tag(:score, -500) %>
+    <%= form.label "Name/n ist/sind bereits vergeben" %>
+<br>
+<%= radio_button_tag(:score, -100) %>
+    <%= form.label "Name/n ist/sind schlimm, weg damit!" %>
 
-    <%= form.label :score %>
-    <%= form.text_field :score %>
+<br>
 
 
 
-    <%= form.submit "Submit" %>
+    <%= form.submit "Name(n) bearbeiten" %>
 
 <% end %>
