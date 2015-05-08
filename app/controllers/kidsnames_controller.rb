@@ -180,6 +180,7 @@ class KidsnamesController < ApplicationController
 
   end
 
+#Checkbox/Radio button methods to remove unwanted/taken names
   def edit_multiple
     @editnames = Kidsname.find(params[:kidsname_ids])
   end
