@@ -41,14 +41,13 @@ class KidsnamesController < ApplicationController
   # POST /kidsnames.json
   def create
     @kidsname = Kidsname.new(params[:kidsname])
-
+    @kidsname.name = params[:kidsname][:name].capitalize
     respond_to do |format|
       if @kidsname.save
         format.html { redirect_to @kidsname, notice: 'Kidsname was successfully created.' }
         format.json { render json: @kidsname, status: :created, location: @kidsname }
         @kidsname.count = 0
         @kidsname.score = 0
-        @kidsname.name = @kidsname.name.capitalize!
         @kidsname.save
 
       else
