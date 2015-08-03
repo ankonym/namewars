@@ -48,7 +48,9 @@ class KidsnamesController < ApplicationController
         format.json { render json: @kidsname, status: :created, location: @kidsname }
         @kidsname.count = 0
         @kidsname.score = 0
+        @kidsname.name = @kidsname.name.capitalize!
         @kidsname.save
+
       else
         format.html { render action: "new" }
         format.json { render json: @kidsname.errors, status: :unprocessable_entity }
