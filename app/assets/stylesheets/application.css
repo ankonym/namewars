@@ -61,6 +61,25 @@ button:focus {outline:0;}
   font-weight: bold;
 }
 
+.girlsnames {
+
+  font-family: Lato;
+  color: FireBrick;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.boysnames {
+
+  font-family: Lato;
+  color: SteelBlue;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
 .namesbtn {
   -webkit-border-radius: 28;
   -moz-border-radius: 28;

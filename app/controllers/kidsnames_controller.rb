@@ -2,11 +2,31 @@ class KidsnamesController < ApplicationController
   # GET /kidsnames
   # GET /kidsnames.json
   def index
-    @kidsnames = Kidsname.all
+    @kidsnames = Kidsname.all    
+
+    @outnames = Kidsname.where ['score <= ?', -1]
+    @outnames = @outnames.where ['score > ?', -450]
+    @outnames = @outnames.all.sort_by(&:count).reverse!
+
+    @topnames = Kidsname.where ['score >= count']
+    @topnames = @topnames.where ['count > ?', 5]
+
+    @takennames = Kidsname.where ['score <= ?', -450]
+
+    @votegirlnames = Kidsname.where ['gender = \'f\' AND score >= ?', -1]
+    @votegirlnames = @votegirlnames.all.sort_by(&:score).reverse!
+
+    @voteboynames = Kidsname.where ['gender = \'m\' AND score >= ?', -1]
+    @voteboynames = @voteboynames.all.sort_by(&:score).reverse!
+
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @kidsnames }
+    
+
+
+
     end
   end
 
@@ -144,20 +164,6 @@ class KidsnamesController < ApplicationController
 
   end
 
-  def top
-    @topnames = Kidsname.where ['score == ?', count]
-  end
-
-  def out
-    @outnames = Kidsname.where ['score <= ?', -450]
-    @outnames = @outnames.shuffle
-    @outnames.save
-
-  end 
-
-  def rmtakennames
-
-  end
 
 #Checkbox/Radio button methods to remove unwanted/taken names
   def edit_multiple

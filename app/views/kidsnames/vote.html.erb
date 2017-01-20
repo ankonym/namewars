@@ -1,0 +1,16 @@
+
+
+<table>
+<tr ><td colspan="2"><center><b class="decoheading">Was ist hübscher?</b></center></td></tr>
+<tr>
+<td><%= form_tag("/votegirls", method: "post") do %>
+    <button class="namesbtn" name="winner" value="<%= @names[0].id %>"><%= @names[0].name %> </button></td>
+<td>
+    <button class="namesbtn" name="winner" value="<%= @names[1].id %>"><%= @names[1].name %> </button></td>
+</tr>
+
+</table>
+
+
+<% end %>
+
