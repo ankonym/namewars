@@ -16,7 +16,13 @@ end
   get "voteboys" => "kidsnames#voteboys"
   post "voteboys" => "kidsnames#voteresult"
 
+  get "votegirls" => "kidsnames#votegirls"
+  post "votegirls" => "kidsnames#voteresult"
+
   get "rmtakennames" => "kidsnames#rmtakennames"
+
+  get "edit_multiple" => "kidsnames#edit_multiple"
+  post "edit_multiple" => "kidsnames#edit_multiple"
 
 
   # The priority is based upon order of creation:
