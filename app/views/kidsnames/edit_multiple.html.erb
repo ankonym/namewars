@@ -16,7 +16,12 @@
     <td><%= radio_button_tag "editnames[#{name.id}]", nil, true %>
       <%= label_tag(:editnames, "Kann bleiben") %></td>
       
-    <td><span class="names"><%= name.name %></span></td>
+    <td>
+      <% if name.gender == "f" %>
+        <span class="girlsnames"><%= name.name %></span></td>
+      <% else %>
+        <span class="boysnames"><%= name.name %></span></td>
+      <% end %>
 
   </tr>
 <% end %>
