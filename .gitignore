@@ -18,3 +18,9 @@
 .DS_store
 */.DS_Store
 .DS_Store?
+
+# Ignore Sublime project files
+.sublime-project
+.sublime-workspace
+*/.sublime-project
+*/.sublime-workspace
