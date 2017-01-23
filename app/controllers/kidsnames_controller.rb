@@ -167,19 +167,32 @@ class KidsnamesController < ApplicationController
 
 #Checkbox/Radio button methods to remove unwanted/taken names
   def edit_multiple
-    @editnames = Kidsname.find(params[:kidsname_ids])
+
+    @editnames = Kidsname.where ['score >= ?', -1]
+    @editnames = @editnames.sort_by(&:name)
+
   end
-  
+
   def update_multiple
-   @editnames = Kidsname.find(params[:kidsname_ids])
 
-   @editnames.each do |name|
-    name.update_attributes(:score => params[:score])
-    name.save!
 
-  end
-  flash[:notice] = "Updated names!"
-  redirect_to kidsnames_path
+    params[:editnames].each_pair do |k,v|
+      if v == "-500"
+
+        takenname = Kidsname.find_by_id(k)
+        takenname.score = -500
+        takenname.save!
+
+      elsif v == "-100"
+
+        dislikedname = Kidsname.find_by_id(k)
+        dislikedname.score = -100
+        dislikedname.save!
+
+      end
+    end
+
+      redirect_to kidsnames_path
   end
 
 #end

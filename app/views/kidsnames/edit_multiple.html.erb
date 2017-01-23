@@ -1,21 +1,28 @@
 <%= form_for :kidsname, :url => update_multiple_kidsnames_path, :html => { :method => :put } do |form| %>
 
-<ul>
-  <% for kidsname in @editnames %>
-  <li>
-    <%= h kidsname.name %>
-    <%= hidden_field_tag "kidsname_ids[]", kidsname.id%>
-  </li>
-  <% end %>
-</ul>
 
-<%= radio_button_tag(:score, -500) %>
-    <%= form.label "Name/n ist/sind bereits vergeben" %>
-<br>
-<%= radio_button_tag(:score, -100) %>
-    <%= form.label "Name/n ist/sind schlimm, weg damit!" %>
 
-<br>
+<table class="table" align="center"> <a name="all">
+
+<% @editnames.each do |name| %>
+  <tr class="tabledatarow">
+  
+    <td><%= radio_button_tag "editnames[#{name.id}]", -500, false %>
+      <%= label_tag(:editnames, "Vergeben") %></td>
+  
+    <td><%= radio_button_tag "editnames[#{name.id}]", -100, false %>
+      <%= label_tag(:editnames, "Schlimm") %></td>
+
+    <td><%= radio_button_tag "editnames[#{name.id}]", nil, true %>
+      <%= label_tag(:editnames, "Kann bleiben") %></td>
+      
+    <td><span class="names"><%= name.name %></span></td>
+
+  </tr>
+<% end %>
+</tbody>
+</table>
+
 
 
 

@@ -5,6 +5,8 @@ resources :kidsnames do
   collection do
     post 'edit_multiple'
     put 'update_multiple'
+
+    post 'edit_multiple_neu'
   end
 end
 
@@ -23,6 +25,9 @@ end
 
   get "edit_multiple" => "kidsnames#edit_multiple"
   post "edit_multiple" => "kidsnames#edit_multiple"
+
+  get "edit_multiple_neu" => "kidsnames#edit_multiple_neu"
+  post "edit_multiple_neu" => "kidsnames#edit_multiple_neu"
 
 
   # The priority is based upon order of creation:
