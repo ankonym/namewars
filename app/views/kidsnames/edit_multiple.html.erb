@@ -1,9 +1,25 @@
 <%= form_for :kidsname, :url => update_multiple_kidsnames_path, :html => { :method => :put } do |form| %>
 
 
+    <div class ="blocktableleft">  
+      <div class="tablebgdiv">
+        <table class="selectiontable" align="center"> <a name="all">
+  <thead>
+    <tr><td class="decoheading" colspan=4>
+     Namen aus dem Rennen werfen
 
-<table class="table" align="center"> <a name="all">
+    </td></tr>
+    <tr><td colspan=4>
+      Gibt es Namen, die auf keinen Fall in Frage kommen - entweder, weil sie dir gar nicht gefallen oder weil sie bereits in deinem Umfeld vergeben sind? 
+      Hier kannst du sie direkt aus dem Rennen werfen. 
 
+      Mit "Vergeben" markierst du Namen, die schon belegt sind.
+
+      "Schlimm" ist für Namen gedacht, die du dir für dieses Kind gar nicht vorstellen kannst. Denk aber daran, dass man manche Namen erst mehrfach sehen muss, bis sie einem gefallen - sei also nicht allzu radikal mit dieser Funktion.
+
+    </td></tr>
+    </thead>
+<tbody>
 <% @editnames.each do |name| %>
   <tr class="tabledatarow">
   
@@ -25,12 +41,12 @@
 
   </tr>
 <% end %>
+<tr><td colspan=4>    <%= form.submit "Name(n) herauswerfen" %>
+</td></tr>
 </tbody>
 </table>
 
+</div></div>
 
-
-
-    <%= form.submit "Name(n) bearbeiten" %>
 
 <% end %>
