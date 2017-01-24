@@ -5,13 +5,14 @@ resources :kidsnames do
   collection do
     post 'edit_multiple'
     put 'update_multiple'
-
-    post 'edit_multiple_neu'
   end
 end
 
   root :to => redirect('/kidsnames')
   
+  get "new" => "kidsnames#new"
+  post "new" => "kidsnames#new"
+
   get "vote" => "kidsnames#vote"
   post "vote" => "kidsnames#voteresult"
 
