@@ -66,6 +66,7 @@ button:focus {outline:0;}
   font-weight: bold;
 }
 
+
 .girlsnames {
 
   font-family: Lato;
@@ -95,6 +96,22 @@ button:focus {outline:0;}
   background: #f0e6bd;
   padding: 8px 12px;
   text-decoration: none;
+  display: inline-block;
+}
+
+.startvotingbutton {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Georgia;
+  color: teal;
+  font-size: 22px;
+  font-weight: bold;
+  background: #f0e6bd;
+  padding: 20px;
+  margin: 50px;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .btn {
